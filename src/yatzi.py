@@ -11,61 +11,38 @@ class Yatzy:
         return total
 
     @staticmethod
-    def yatzy(dice):
-        counts = [0]*(len(dice)+1)
-        for die in dice:
-            counts[die-1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
+    def yatzy(*dice):
+        if len(set(dice)) == 1:
+            return 50
         return 0
+        
     
     @staticmethod
-    def ones( d1,  d2,  d3,  d4,  d5):
-        sum = 0
-        if (d1 == 1):
-            sum += 1
-        if (d2 == 1):
-            sum += 1
-        if (d3 == 1):
-            sum += 1
-        if (d4 == 1):
-            sum += 1
-        if (d5 == 1): 
-            sum += 1
+    def ones(*dice):
+        ONE = 1
+        return dice.count(ONE) * ONE
+    
+    @staticmethod
+    def twos(*dice):
+        TWO = 2 
+        return dice.count(TWO) * TWO
+    
+    @staticmethod
+    def threes(*dice):
+        THREE = 3
+        return dice.count(THREE) * THREE
+    
+    def fours(self):
+        FOUR = 4
+        return self.dice.count(FOUR) * FOUR
 
-        return sum
-    
+    def fives(self):
+        FIVE = 5
+        return self.dice.count(FIVE) * FIVE
 
-    @staticmethod
-    def twos( d1,  d2,  d3,  d4,  d5):
-        sum = 0
-        if (d1 == 2):
-             sum += 2
-        if (d2 == 2):
-             sum += 2
-        if (d3 == 2):
-             sum += 2
-        if (d4 == 2):
-             sum += 2
-        if (d5 == 2):
-             sum += 2
-        return sum
-    
-    @staticmethod
-    def threes( d1,  d2,  d3,  d4,  d5):
-        s = 0
-        if (d1 == 3):
-             s += 3
-        if (d2 == 3):
-             s += 3
-        if (d3 == 3):
-             s += 3
-        if (d4 == 3):
-             s += 3
-        if (d5 == 3):
-             s += 3
-        return s
+    def sixes(self):
+        SIX = 6
+        return self.dice.count(SIX) * SIX
     
 
     def __init__(self, d1, d2, d3, d4, _5):
@@ -228,3 +205,4 @@ class Yatzy:
             return _2_at * 2 + _3_at * 3
         else:
             return 0
+
