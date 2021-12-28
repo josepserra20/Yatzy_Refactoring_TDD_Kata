@@ -43,3 +43,43 @@ def test_sixes():
         assert 0 == Yatzy(4,4,4,5,5).sixes()
         assert 6 == Yatzy(4,4,6,5,5).sixes()
         assert 18 == Yatzy(6,5,6,6,5).sixes()
+
+def test_one_pair():
+        assert 6 == Yatzy.score_pair(3,4,3,5,6)
+        assert 10 == Yatzy.score_pair(5,3,3,3,5)
+        assert 12 == Yatzy.score_pair(5,3,6,6,5)
+
+def test_two_pairs():
+        assert 16 == Yatzy.two_pair(3,3,5,4,5)
+        assert 18 == Yatzy.two_pair(3,3,6,6,6)
+        assert 0 == Yatzy.two_pair(3,3,6,5,4)
+
+def test_three_of_a_kind():
+        assert 9 == Yatzy.three_of_a_kind(3,3,3,4,5)
+        assert 15 == Yatzy.three_of_a_kind(5,3,5,4,5)
+        assert 9 == Yatzy.three_of_a_kind(3,3,3,3,5)
+
+def test_four_of_a_kind():
+        assert 12 == Yatzy.four_of_a_kind(3,3,3,3,5)
+        assert 20 == Yatzy.four_of_a_kind(5,5,5,4,5)
+        assert 12 == Yatzy.four_of_a_kind(3,3,3,3,3)
+        assert 0 == Yatzy.four_of_a_kind(3,3,3,2,1)
+
+def test_smallStraight():
+    assert 15 == Yatzy.smallStraight(1, 2, 3, 4, 5)
+    assert 0 == Yatzy.smallStraight(2, 3, 4, 5, 6)
+    assert 0 == Yatzy.smallStraight(1, 3, 4, 5, 5)
+    assert 0 == Yatzy.smallStraight(6, 6, 6, 6, 6)
+    assert 0 == Yatzy.smallStraight(1, 2, 3, 4, 6)
+
+def test_largeStraight():
+    assert 20 == Yatzy.largeStraight(2, 3, 4, 5, 6)
+    assert 0 == Yatzy.largeStraight(1, 2, 3, 4, 5)
+    assert 0 == Yatzy.largeStraight(1, 3, 4, 5, 5)
+    assert 0 == Yatzy.largeStraight(6, 6, 6, 6, 6)
+    assert 0 == Yatzy.largeStraight(1, 2, 3, 4, 6)
+
+def test_fullHouse():
+    assert 8 == Yatzy.fullHouse(1, 1, 2, 2, 2)
+    assert 0 == Yatzy.fullHouse(2, 2, 3, 3, 4)
+    assert 0 == Yatzy.fullHouse(4, 4, 4, 4, 4)
